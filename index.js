@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "...chai banane mein expert hai, aur kisi bhi report se pehle bacteria pakad leti hai. 🤓",
     "Dehradun mein rehti hai, lekin dil aur roots Firozabad se jude hain.",
     "PhD, hospital duty, ghar ka pyaar, aur apne sapne... sab kuch calmness se sambhal leti ho.",
-    "Tumhara vibe? Ekdum cozy but confident.",
+    "Uski vibes? Ekdum cozy but confident.",
     "Aesthetic ka strong sense rakhti ho, aur thoda sa possessive bhi... jab tum care karti ho.",
     "Tumhara signature combo: Aloo parantha, hari chutney aur raita. Bilkul tumhari tarah: simple, tasty, aur full of warmth.",
     "Music ka taste awesome hai, aur colors ki toh encyclopedia ho (beige, mocha, camel... sab yaad hai mujhe 😂).",
@@ -73,6 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentIndex < STORY_PAGES.length) {
       currentIndex++;
       updateScreen();
+    }
+    if (currentIndex === STORY_PAGES.length - 3) {
+      // If we're reaching  the end, play the audio
+      if (audioPlayer) {
+        audioPlayer.play().catch(error => {
+          console.error("Audio playback failed:", error);
+        });
+      }
     }
   };
 
