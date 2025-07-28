@@ -125,7 +125,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if (storyScreen) storyScreen.addEventListener('click', handleNext);
+  if (storyScreen) {
+    storyScreen.addEventListener('click', handleNext);
+    // add keyboard navigation
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault(); // Prevent default action for Enter/Space
+        handleNext();
+      }
+    });
+  }
   if (restartButton) restartButton.addEventListener('click', handleRestart);
   if (playPauseButton) playPauseButton.addEventListener('click', handlePlayPause);
   if (audioPlayer) {
